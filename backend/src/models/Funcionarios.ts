@@ -1,7 +1,11 @@
-import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn } from 'typeorm'
+import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, OneToMany, JoinColumn } from 'typeorm'
+import FotoFuncionarios from './FotoFuncionarios'
 
 @Entity('funcionarios')
 export default class Funcionarios {
+  foto_funcs(foto_funcs: any) {
+    throw new Error('Method not implemented.');
+  }
   @PrimaryGeneratedColumn('increment')
   id: number;
 
@@ -25,4 +29,10 @@ export default class Funcionarios {
 
   @UpdateDateColumn()
   updated_at: Date;
+
+  @OneToMany(() => FotoFuncionarios, foto => foto.funcionario, {
+    cascade: ['insert', 'update']
+  })
+  @JoinColumn({ name: 'funcionario_id' })
+  fotofunc: FotoFuncionarios[]
 }

@@ -1,5 +1,6 @@
-import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, ManyToOne, JoinColumn } from 'typeorm'
+import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, ManyToOne, JoinColumn, OneToMany } from 'typeorm'
 import Funcionarios from './Funcionarios'
+import FotoDependentes from './FotoDependentes'
 
 @Entity('dependentes')
 export default class Dependentes {
@@ -27,4 +28,10 @@ export default class Dependentes {
 
   @UpdateDateColumn()
   updated_at: Date;
+
+  @OneToMany(() => FotoDependentes, foto => foto.dependente, {
+    cascade: ['insert', 'update'],
+  })
+  @JoinColumn({ name: 'dependente_id'})
+  fotodep: FotoDependentes[];
 }
