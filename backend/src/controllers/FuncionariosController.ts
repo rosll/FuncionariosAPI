@@ -71,5 +71,15 @@ export default {
     await funcionariosRepo.save(funcionario)
   
     return res.status(201).json(funcionario)
+  },
+
+  async remove(req: Request, res: Response) {
+    const { id } = req.params
+
+    const funcionariosRepo = getRepository(Funcionarios)
+
+    await funcionariosRepo.delete(id)
+
+    return res.send({message: 'Cadastro de Funcionários Excluído'})
   }
 }

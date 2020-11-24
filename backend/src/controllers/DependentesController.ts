@@ -68,5 +68,15 @@ export default {
     await dependentesRepo.save(dependente)
   
     return res.status(201).json(dependente)
+  },
+
+  async remove(req: Request, res: Response) {
+    const { id } = req.params
+
+    const dependentesRepo = getRepository(Dependentes)
+
+    await dependentesRepo.delete(id)
+
+    return res.send({message: 'Cadastro de Dependentes Excluído'})
   }
 }
