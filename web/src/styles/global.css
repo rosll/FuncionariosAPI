@@ -1,0 +1,14 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #ffe6e6;
+  color: #333;
+}
+
+body, input, button {
+  font: 15px Asap, sans-serif, Helvetica;
+}

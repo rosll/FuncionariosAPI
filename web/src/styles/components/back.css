@@ -1,0 +1,18 @@
+.back {
+  margin: 20px;
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+  background: #ffb3b3;
+  color: #333;
+  font-weight: 650;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.5s;
+  outline: none;
+  cursor: pointer;
+}
+
+.back:hover {
+  background: #ffcccc;
+}

@@ -1,0 +1,33 @@
+#pag-details main {
+  display: flex;
+  flex: 1;
+}
+
+div.details-func {
+  width: 500px;
+  margin: 44px auto;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background: #ffb3b3;
+  border: 2px solid #ffcccc;
+  border-radius: 20px;
+  padding: 55px 40px;
+}
+
+.details-func fieldset {
+  border: 0;
+}
+
+.details-func legend {
+  text-decoration: overline #333;
+  font-size: 38px;
+  line-height: 4px;
+  color: #333;
+  font-weight: 600;
+  margin: 45px auto;
+}
+
+
+.details-func .details-content p {
+  line-height: 18px;
+  margin-top: 15px;
+}

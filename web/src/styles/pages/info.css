@@ -1,0 +1,76 @@
+#pag-info main {
+  display: flex;
+  flex: 1;
+}
+
+div.info-func {
+  width: 500px;
+  margin: 44px auto;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background: #ffb3b3;
+  border: 2px solid #ffcccc;
+  border-radius: 20px;
+  padding: 55px 40px;
+}
+
+.info-func fieldset {
+  border: 0;
+}
+
+.info-func legend {
+  text-decoration: overline #333;
+  font-size: 38px;
+  line-height: 4px;
+  color: #333;
+  font-weight: 600;
+  margin: 45px auto;
+}
+
+.info-func .info-content p {
+  line-height: 18px;
+  margin-top: 15px;
+}
+
+.info-func img {
+  width: 50%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.info-func .info-content .botao-excluir {
+  margin-top: 40px;
+  margin-right: 70px;
+  width: 25%;
+  height: 45px;
+  cursor: pointer;
+  border-radius: 10px;
+  color: #333;
+  font-weight: 650;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.5s;
+  outline: none;
+}
+
+.info-func .info-content .botao-excluir:hover {
+  background: #ff6666;
+
+}
+
+.info-func .info-content .detalhes {
+  margin-top: 40px;
+  width: 25%;
+  height: 45px;
+  cursor: pointer;
+  border-radius: 10px;
+  color: #333;
+  font-weight: 650;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.7s;
+  outline: none;
+}
+
+.info-func .info-content .detalhes:hover {
+  background: #4d94ff;
+}
