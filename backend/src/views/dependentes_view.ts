@@ -1,5 +1,5 @@
 import Dependentes from '../models/Dependentes'
-import FotoDepView from './foto_departamentos_view'
+import FotoDepView from './foto_dependentes_view'
 
 export default {
   render(dependente: Dependentes) {

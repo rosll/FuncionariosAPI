@@ -11,7 +11,7 @@ export default function Info(){
         <div className='info-func'>
           <fieldset>
             <legend>Info</legend>
-            <img />
+            <img alt='amb' />
             <div className='info-content'>
               <p>Nome: Romulo Lima</p>
               <p>Função: DBA</p>

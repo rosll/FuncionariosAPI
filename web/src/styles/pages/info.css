@@ -35,6 +35,7 @@ div.info-func {
   width: 50%;
   height: 180px;
   object-fit: cover;
+  border-radius: 20px;
 }
 
 .info-func .info-content .botao-excluir {

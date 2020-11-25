@@ -1,7 +1,7 @@
 import { Request, Response } from 'express'
 import { getRepository } from 'typeorm'
 import Dependentes from '../models/Dependentes'
-import dependentesView from '../views/departamentos_view'
+import dependentesView from '../views/dependentes_view'
 import * as Yup from 'yup'
 
 export default {

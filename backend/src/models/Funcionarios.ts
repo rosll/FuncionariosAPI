@@ -3,9 +3,6 @@ import FotoFuncionarios from './FotoFuncionarios'
 
 @Entity('funcionarios')
 export default class Funcionarios {
-  foto_funcs(foto_funcs: any) {
-    throw new Error('Method not implemented.');
-  }
   @PrimaryGeneratedColumn('increment')
   id: number;
 
@@ -23,6 +20,9 @@ export default class Funcionarios {
 
   @Column()
   telefone: string;
+
+  @Column()
+  curtir: number;
 
   @CreateDateColumn()
   created_at: Date;

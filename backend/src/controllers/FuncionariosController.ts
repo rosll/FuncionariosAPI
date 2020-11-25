@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-import { getRepository } from 'typeorm'
+import { getConnection, getRepository } from 'typeorm'
 import Funcionarios from '../models/Funcionarios'
 import funcionariosView from '../views/funcionarios_view'
 import * as Yup from 'yup'
@@ -27,13 +27,54 @@ export default {
     return res.json(funcionariosView.render(funcionario))
   },
 
+  async like(req: Request, res: Response) {
+    const { id } = req.params
+
+    const funcionariosRepo = getRepository(Funcionarios)
+
+    const likes = await funcionariosRepo.findOneOrFail(id)
+
+    likes.curtir += 1
+
+    await getConnection().createQueryBuilder()
+                       .update(Funcionarios)
+                       .set({ curtir: likes.curtir })
+                       .where(`id = ${id}`)
+                       .execute()
+
+    const funcionario = await funcionariosRepo.findOneOrFail(id)
+
+    return res.json(funcionariosView.render(funcionario))
+  },
+
+  async dislike(req: Request, res: Response) {
+    const { id } = req.params
+
+    const funcionariosRepo = getRepository(Funcionarios)
+
+    const dislikes = await funcionariosRepo.findOneOrFail(id)
+
+    dislikes.curtir -= 1
+
+    await getConnection().createQueryBuilder()
+                         .update(Funcionarios)
+                         .set({ curtir: dislikes.curtir })
+                         .where(`id = ${id}`)
+                         .execute()
+
+    const funcionario = await funcionariosRepo.findOneOrFail(id)
+
+    return res.json(funcionariosView.render(funcionario))
+  },
+
   async create(req: Request, res: Response) {
     const {
       nome,
       funcao,
       departamento,
       email,
-      telefone
+      curtir,
+      telefone,
     } = req.body
   
     const funcionariosRepo = getRepository(Funcionarios)
@@ -50,6 +91,7 @@ export default {
       departamento,
       email,
       telefone,
+      curtir,
       fotofunc
     }
 
@@ -59,6 +101,7 @@ export default {
       departamento: Yup.string().required('Campo Departamento obrigatório'),
       email: Yup.string().required('Campo Email obrigatório').email(),
       telefone: Yup.string().required('Campo Telefone obrigatório').min(10),
+      curtir: Yup.string(),
       fotofunc: Yup.array(Yup.object().shape({
         path: Yup.string().required('Campo Foto obrigatório')
       }))

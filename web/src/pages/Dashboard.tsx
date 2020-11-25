@@ -42,9 +42,7 @@ export default function Dashboard() {
                   <FiPlus size={19} color="#2ad680" />
                 </label>
               </div>
-              {/* <input id="image[]"/> */}
             </div>
-
           </fieldset>
 
           <Link to='/info' >

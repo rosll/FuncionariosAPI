@@ -10,6 +10,7 @@ export default {
       departamento: funcionario.departamento,
       email: funcionario.email,
       telefone: funcionario.telefone,
+      curtir: funcionario.curtir,
       fotofunc: FotoFuncView.renderMany(funcionario.fotofunc)
     }
   },

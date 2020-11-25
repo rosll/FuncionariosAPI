@@ -35,6 +35,11 @@ export class criarFuncionarios1606100136527 implements MigrationInterface {
           type: 'integer'
         },
         {
+          name: 'curtir',
+          type: 'number',
+          default: 0
+        },
+        {
           name: 'created_at',
           type: 'timestamp',
           default: 'now()'
